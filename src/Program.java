@@ -1,11 +1,16 @@
 public class Program {
     public static void main(String[] args) {
-        charExpression(1);
+        System.out.println(getAgeDiff((byte) 20, (byte) 10));
+    }
+
+    public static byte getAgeDiff(byte age1, byte age2) {
+        int sum;
+        if (age1 < age2) {
+            sum = age2 - age1;
+        } else {
+            sum = age1 - age2;
         }
-    public static void charExpression(int a) {
-        int sl = (int) '\\' + a;
-        char symbol = (char) sl;
-        System.out.println(symbol);
+        return (byte) sum;
     }
 }
 
