@@ -1,19 +1,24 @@
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println(checkWeekend("Saturday"));
-
+        printArray(new int[]{});
     }
 
-    public static String checkWeekend(String weekday) {
-        String question = weekday;
-        String answer = "";
-        return question == "Saturday" || question == "Sunday" ? answer = "Ура, выходной!" : "Надо еще поработать";
-    }
+    public static void printArray(int[] numbers) {
+        if (numbers.length == 0) {
+            System.out.print("[]");
+        } else {
+            System.out.print("[");
+            for (int i = 0; i < numbers.length - 1; i++) {
+                System.out.print(numbers[i] + ", ");
+            }
+            System.out.print(numbers[numbers.length - 1] + "]");
+        }
 
+    }
 }
-
 
 
 
