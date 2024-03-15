@@ -2,20 +2,16 @@ import java.math.BigInteger;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println(determineGroup(5));
+        System.out.println(checkWeekend("Saturday"));
+
     }
 
-    public static int determineGroup(int age) {
-
-        if (age >= 7 && age <= 13) {
-            return 1;
-        } else if (age >= 14 && age <= 17) {
-            return 2;
-        } else if (age >= 18 && age <= 65) {
-            return 3;
-        }
-        return -1;
+    public static String checkWeekend(String weekday) {
+        String question = weekday;
+        String answer = "";
+        return question == "Saturday" || question == "Sunday" ? answer = "Ура, выходной!" : "Надо еще поработать";
     }
+
 }
 
 
