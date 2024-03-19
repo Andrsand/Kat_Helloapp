@@ -1,26 +1,22 @@
-import java.math.BigInteger;
+import java.io.OptionalDataException;
 import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
-        printArray(new int[]{});
+        //createSubArrayBetween(new int[]{1, 3, 5, 6, 9, 11, 24}, 4, 10);
+
+        int[] res = getSubArrayBetween(new int[]{1, 3, 5, 6, 9, 11, 24}, 3, 24);
+        System.out.println(Arrays.toString(res));
     }
 
-    public static void printArray(int[] numbers) {
-        if (numbers.length == 0) {
-            System.out.print("[]");
-        } else {
-            System.out.print("[");
-            for (int i = 0; i < numbers.length - 1; i++) {
-                System.out.print(numbers[i] + ", ");
-            }
-            System.out.print(numbers[numbers.length - 1] + "]");
-        }
-
+    public static int[] getSubArrayBetween(int[] numbers, int start, int end) {
+        return java.util.stream.IntStream.of(numbers).filter(n -> start <= n && n <= end).toArray();
     }
+
 }
-
-
 
 
 
