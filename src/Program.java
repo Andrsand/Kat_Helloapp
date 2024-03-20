@@ -6,17 +6,40 @@ import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
-        //createSubArrayBetween(new int[]{1, 3, 5, 6, 9, 11, 24}, 4, 10);
+        int[] numbers = {1, 3, 5, 6, 9, 11, 24};
+        int[] result = getSubArrayBetween(numbers, 2, 15);
 
-        int[] res = getSubArrayBetween(new int[]{1, 3, 5, 6, 9, 11, 24}, 3, 24);
-        System.out.println(Arrays.toString(res));
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + " ");
+        }
+
     }
 
     public static int[] getSubArrayBetween(int[] numbers, int start, int end) {
-        return java.util.stream.IntStream.of(numbers).filter(n -> start <= n && n <= end).toArray();
-    }
+        int count = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] >= start && numbers[i] <= end) {
+                count++;
+            }
+        }
 
+        int[] result = new int[count];
+        int in = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] >= start && numbers[i] <= end) {
+                result[in] = numbers[i];
+                in++;
+            }
+        }
+
+        return result;
+    }
 }
+
+
+
+
+
 
 
 
