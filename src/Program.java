@@ -1,28 +1,38 @@
 import java.util.Arrays;
 
 public class Program {
-        public static void main(String[] args) {
-            int[] numbers = {1, 5, 2, 3, 4, 5, 5};
-            int[] middle1 = getArrayMiddle(numbers);
-            System.out.println(Arrays.toString(middle1));
-        }
-        public static int[] getArrayMiddle(int[] numbers) {
-            if (numbers.length == 0) {
-                return new int[0];
-            }
-            if (numbers.length % 2 == 0) {
-                int[] result = new int[2];
-                System.arraycopy(numbers, numbers.length / 2 - 1, result, 0, 2);
-                return result;
-            } else {
-                int[] result = new int[1];
-                System.arraycopy(numbers, numbers.length / 2, result, 0, 1);
-                return result;
-            }
-        }
+    public static void main(String[] args) {
+        int[] arr;
+        printOddNumbers(arr = new int[]{2, 4, 5, 6, 10, 15});
     }
 
+    public static void printOddNumbers(int[] array) {
+        if (array.length == 0) {
+            System.out.println("");
+            return;
+        }
 
+        boolean firstComma = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                if (firstComma) {
+                    System.out.print(",");
+                } else {
+                    firstComma = true;
+                }
+                System.out.print(array[i]);
+            }
+        }
+        System.out.println();
+    }
+}
+
+/*
+Реализуй метод java который принимает массив и выводит в консоль только нечетные числа из него, через запятую. Конец вывода должен перевести курсор на новую строку.После последнего числа на выводе не должно быть запятой.
+Сигнатура метода такая: public static void printOddNumbers(int[] arr)
+Метод должен быть реализован только с комощью обычных циклов или логических операторов.
+Если на входе числа 3,5,20,8,7,3,100 то на выходе должно быть 3,5,7,3
+*/
 
 
 
