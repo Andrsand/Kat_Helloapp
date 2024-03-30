@@ -1,24 +1,29 @@
-import java.util.Arrays;
-
 public class Program {
-    public static void main(String[] args) {
-
-        System.out.println(isPalindrome("Was it a cat I saw?")); // Выведет true
-        System.out.println(isPalindrome("10801.")); // Выведет false
+    public static void main (String[]args){
+        String[] roles = {"Вася", "Петя"};
+        String[] textLines = {"Вася: Привет!", "Петя: Пока."};
+        System.out.println(textScript(roles, textLines));
     }
-    public static boolean isPalindrome(String text) {
-        // Удаление всех символов, не являющихся буквами и цифрами
-        String preparedText = text.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        // Проверка на палиндром
-        for (int i = 0; i < preparedText.length() / 2; i++) {
-            if (preparedText.charAt(i) != preparedText.charAt(preparedText.length() - i - 1)) {
-                return false;
+    // An example of how StringBuilder works. Distribution of text by roles.
+    public static String textScript(String[] roles, String[] textLines) {
+        StringBuilder result = new StringBuilder();
+        for (String role : roles) {
+            result.append(role).append(":\n");
+            for (int j = 0; j < textLines.length; j++) {
+                if (textLines[j].startsWith(role + ":")) {
+                    result.append(j + 1).append(") ").append(textLines[j].substring(role.length() + 2)).append("\n");
+                }
             }
+            result.append("\n");
         }
-        return true;
+        return result.toString();
     }
 }
+
+
+
+
+
 
 
 
