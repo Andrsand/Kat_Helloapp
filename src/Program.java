@@ -1,18 +1,46 @@
+import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Program {
     public static void main(String[] args) {
+        Person tom = new Person();
+        tom.displayInfo();
 
-        System.out.println(isGmailOrOutlook("@outlook.com"));
+        Person al = new Person("tomos");
+        tom.displayInfo();
+
+        Person sam = new Person("Sam", 25); // вызов третьего конструктора с двумя параметрами
+        sam.displayInfo();
+
+
     }
-    // An example of working with regular expressions of the Pattern and Matcher methods
-    public static boolean isGmailOrOutlook(String email) {
-        Pattern pattern = Pattern.compile("^[A-Za-z0-9]+@(gmail|outlook).com$");
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
+
+    static class Person {
+
+        String name;
+        int age;
+        Person()
+        {
+            this("Undefined", 10);
+        }
+        Person(String name)
+        {
+            this(name, 18);
+        }
+
+        Person(String name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+           void displayInfo(){
+                System.out.println(name+' '+age);
+            }
+        }
 }
+
+
 
 
 
